@@ -1,0 +1,30 @@
+.breadcrumbs {
+  max-width: var(--page-width);
+  margin: 18px auto 0;
+  padding: 0 var(--page-gutter);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--copper);
+}
+
+.breadcrumbs a {
+  color: inherit;
+}
+
+.breadcrumbs a:hover {
+  color: var(--ink);
+}

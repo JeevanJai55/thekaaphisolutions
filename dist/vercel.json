@@ -1,0 +1,57 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "machine", "value": "bean-front" }],
+      "destination": "/machines.html#bean-to-cup",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "machine", "value": "bean-angle" }],
+      "destination": "/machines.html#bean-to-cup",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "machine", "value": "filter-front" }],
+      "destination": "/machines.html#filter-coffee-machine",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "machine", "value": "filter-angle" }],
+      "destination": "/machines.html#filter-coffee-machine",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "has": [{ "type": "query", "key": "machine", "value": "bean-front" }],
+      "destination": "/machines.html#bean-to-cup",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "has": [{ "type": "query", "key": "machine", "value": "bean-angle" }],
+      "destination": "/machines.html#bean-to-cup",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "has": [{ "type": "query", "key": "machine", "value": "filter-front" }],
+      "destination": "/machines.html#filter-coffee-machine",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "has": [{ "type": "query", "key": "machine", "value": "filter-angle" }],
+      "destination": "/machines.html#filter-coffee-machine",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaphi-solutions-complete.jeevanjai55.chatgpt.site/sitemap.xml

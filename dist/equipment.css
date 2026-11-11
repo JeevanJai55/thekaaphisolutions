@@ -1,0 +1,54 @@
+/* Each machine keeps its image, story and specifications together. */
+.individual-equipment{background:#ebe4d8;padding-bottom:55px}
+.individual-equipment>.section-heading{margin-bottom:36px}
+.machine-jump-links{position:static;display:flex;flex-direction:row;align-items:center;gap:30px;padding:0 0 30px;background:transparent;border:0;border-bottom:1px solid #cbbda9;font-size:12px;white-space:normal}
+.machine-jump-links a{display:inline-flex;align-items:center;gap:27px;color:#67513a;padding:0!important}.machine-jump-links a:hover{color:var(--copper)}
+.machine-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8%;align-items:start;padding:72px 0;border-bottom:1px solid #cbbda9;scroll-margin-top:12px}
+.machine-feature-visual{position:sticky;top:115px;min-width:0}
+.machine-feature-photo{display:block;position:relative;width:100%;border:1px solid #d1c0a9;background:radial-gradient(ellipse at 50% 38%,#fbf7f0,#dfd2bd);padding:25px;overflow:hidden}
+.machine-feature-photo img{width:100%;height:430px;object-fit:contain;mix-blend-mode:multiply;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.machine-feature-photo:hover img{transform:scale(1.025)}
+.machine-feature-photo>span{position:absolute;right:20px;bottom:18px;border:1px solid #b7a48c;width:35px;height:35px;border-radius:50%;display:grid;place-items:center;color:#735435;background:#f7efe2db;font-size:19px}
+.machine-image-detail{display:grid;grid-template-columns:145px 1fr;gap:24px;align-items:center;margin:20px 0 0 28px}
+.machine-detail-photo{padding:9px;background:#f3ede2}.machine-detail-photo img{height:140px}.machine-detail-photo>span{right:6px;bottom:6px;width:25px;height:25px;font-size:14px}
+.machine-image-detail p{font:19px/1.5 Georgia,serif;color:#6d573d}.machine-image-detail em{color:#8f6740}
+.machine-model{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#8c6741;margin-bottom:21px}
+.machine-feature-copy>h3{font:clamp(38px,3.7vw,56px)/1.08 Georgia,serif;letter-spacing:-1.5px;margin-bottom:25px}
+.machine-description{font-size:14px;line-height:1.9;max-width:490px}
+.machine-drinks{margin-top:27px;padding:20px 0;border-top:1px solid #ccbda8;border-bottom:1px solid #ccbda8}
+.machine-drinks h4{font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:1.2px;color:#806347;margin:0 0 11px}
+.machine-drinks p{font:17px/1.8 Georgia,serif;color:#51402e}
+.machine-feature-list{padding:0;margin:22px 0 27px;list-style:none;color:#695744;font-size:12px;line-height:1.8}
+.machine-feature-list li{position:relative;padding-left:16px;margin:7px 0}.machine-feature-list li:before{content:'';width:4px;height:4px;border-radius:50%;background:#a57b4d;position:absolute;left:0;top:9px}
+.machine-feature-specs{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin:0 0 27px;min-width:0}
+.machine-feature-specs>div{padding:13px 0;border-top:1px solid #d1c3b1;min-width:0}
+.machine-feature-specs dt{font-size:10px;line-height:1.6;color:#78634d;margin-bottom:6px}
+.machine-feature-specs dd{margin:0;font-size:13px;line-height:1.6;color:#34281e}
+.machine-feature .machine-enquiry{background:#4b2c18;color:#fff6e8;border-color:#4b2c18;border-radius:30px;margin:0;font-size:12px;padding:14px 23px}
+.machine-source-note{font-size:10px;line-height:1.8;max-width:390px;margin-top:18px;color:#7d6a55}
+.machine-feature-reverse .machine-feature-visual{grid-column:2;grid-row:1}
+.machine-feature-reverse .machine-feature-copy{grid-column:1;grid-row:1}
+.machine-feature-reverse .machine-feature-photo{background:radial-gradient(ellipse at 50% 38%,#f9f8f2,#d8dccd)}
+.boiler-feature{padding-bottom:60px}
+.boiler-photo{padding:0;background:#e6ddd1}.boiler-photo img{height:auto;aspect-ratio:1.1;object-fit:cover;mix-blend-mode:normal}
+.boiler-image-caption{font:italic 19px/1.5 Georgia,serif;text-align:center;margin:20px auto 0;max-width:300px;color:#7e6245}
+.equipment-brochure{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-top:30px}
+.equipment-brochure>p{font:23px Georgia,serif;color:#5b4631}.equipment-brochure .text-link{font-size:12px}
+.machine-lightbox-caption{text-align:center;font-size:12px;line-height:1.8;margin:20px 0 0!important}
+@media(max-width:1050px){.machine-feature{gap:6%;padding:55px 0}.machine-feature-photo img{height:365px}.machine-detail-photo img{height:110px}.machine-image-detail{grid-template-columns:120px 1fr;gap:18px;margin-left:10px}.machine-image-detail p{font-size:17px}.machine-feature-copy>h3{font-size:43px}.machine-feature-specs{gap:0 16px}.machine-feature-specs dd{font-size:12px}}
+@media(max-width:720px){
+ .individual-equipment{padding-bottom:40px}
+ .machine-jump-links{display:flex;position:static;inset:auto;flex-direction:row;align-items:center;gap:18px;justify-content:space-between;padding:0 0 24px;box-shadow:none;overflow:visible;white-space:normal;font-size:10px}
+ .machine-jump-links a{gap:8px;line-height:1.6}.machine-jump-links a>span{display:none}
+ .machine-feature{grid-template-columns:1fr;gap:32px;padding:38px 0 45px;scroll-margin-top:12px}
+ .machine-feature-visual{position:static;top:auto}.machine-feature-photo{padding:20px}.machine-feature-photo img{height:340px}
+ .machine-image-detail{grid-template-columns:105px 1fr;gap:25px;margin:14px 0 0 16px}.machine-detail-photo{padding:8px}.machine-detail-photo img{height:100px}.machine-image-detail p{font-size:18px}
+ .machine-feature-reverse .machine-feature-visual,.machine-feature-reverse .machine-feature-copy{grid-column:auto;grid-row:auto}
+ .machine-model{font-size:9px;letter-spacing:1.2px;margin-bottom:18px}.machine-feature-copy>h3{font-size:42px;letter-spacing:-1.4px;margin-bottom:22px}.machine-description{font-size:13px;line-height:1.9}
+ .machine-drinks{margin-top:23px;padding:18px 0}.machine-drinks p{font-size:16px}.machine-feature-list{font-size:12px;margin:20px 0 23px}
+ .machine-feature-specs{gap:0 20px}.machine-feature-specs>div{padding:12px 0}.machine-feature-specs dt{font-size:10px}.machine-feature-specs dd{font-size:12px;overflow-wrap:anywhere}
+ .machine-feature .machine-enquiry{font-size:11px;padding:14px 20px}.machine-source-note{font-size:10px}
+ .boiler-photo{padding:0}.boiler-photo img{height:auto;aspect-ratio:1.1}.boiler-image-caption{font-size:18px}
+ .equipment-brochure{display:block;padding-top:28px}.equipment-brochure>p{font-size:22px;margin-bottom:20px}.equipment-brochure .text-link{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.machine-feature-photo img{transition:none}}
