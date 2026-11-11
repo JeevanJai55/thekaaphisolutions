@@ -7,7 +7,6 @@
   const toggle = document.querySelector('#hero-play');
   const status = document.querySelector('#hero-video-status');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const mobile = matchMedia('(max-width: 760px)');
   const saveData = navigator.connection?.saveData;
 
   let userPaused = reduced.matches || Boolean(saveData);
@@ -24,7 +23,7 @@
   }
 
   async function play(manual = false) {
-    if (userPaused || !visible || document.hidden || (!manual && (!initialPlaybackReady || mobile.matches))) return;
+    if (userPaused || !visible || document.hidden || (!manual && !initialPlaybackReady)) return;
     if (!video.src) {
       video.src = video.dataset.src;
       video.load();
@@ -80,12 +79,6 @@
       userRequestedPlayback = false;
       play(false);
     }
-  });
-
-  mobile.addEventListener('change', event => {
-    if (event.matches && !userRequestedPlayback) video.pause();
-    else if (!event.matches) play();
-    updateControl();
   });
 
   if (!userPaused) {
