@@ -122,3 +122,9 @@
   .about-hero-visual>img,.about-orbit{animation:none}
   .about-range-card,.about-range-image img,.about-culture-image img{transition:none}
 }
+@media(min-width:1441px){
+  .about-page main{max-width:none}
+  .about-hero{max-width:none;margin-inline:0}
+  .about-hero-copy{padding-left:var(--page-inset)}
+  .about-cta{max-width:none;padding-inline:var(--page-inset)}
+}

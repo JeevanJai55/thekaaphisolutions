@@ -2096,3 +2096,56 @@ body:not(.catalogue-page) main h2 em {
   backdrop-filter: blur(18px) saturate(145%);
   box-shadow: 0 8px 26px rgba(48, 32, 20, .09);
 }
+
+@media (min-width: 1441px) {
+  :root {
+    --page-inset: calc((100vw - var(--page-width)) / 2 + var(--page-gutter));
+  }
+
+  main {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .reference-header,
+  body.catalogue-page .reference-header {
+    width: 100%;
+    max-width: none;
+    padding-inline: var(--page-inset);
+  }
+
+  .section {
+    max-width: none;
+    padding-inline: var(--page-inset);
+  }
+
+  .film-hero.hero {
+    max-width: none;
+  }
+
+  .film-hero .hero-copy {
+    padding-left: var(--page-inset);
+  }
+
+  .film-controls {
+    left: var(--page-inset);
+    right: var(--page-inset);
+  }
+
+  .catalogue-tabs {
+    padding-inline: var(--page-inset);
+  }
+
+  .numbers-band {
+    max-width: none;
+    padding-inline: var(--page-inset);
+  }
+
+  footer.site-footer {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: var(--page-inset);
+  }
+}

@@ -12,6 +12,7 @@
 
   let userPaused = reduced.matches || Boolean(saveData);
   let userRequestedPlayback = false;
+  let initialPlaybackReady = false;
   let visible = !('IntersectionObserver' in window);
 
   function updateControl() {
@@ -23,7 +24,7 @@
   }
 
   async function play(manual = false) {
-    if (userPaused || !visible || document.hidden || (!manual && mobile.matches)) return;
+    if (userPaused || !visible || document.hidden || (!manual && (!initialPlaybackReady || mobile.matches))) return;
     if (!video.src) {
       video.src = video.dataset.src;
       video.load();
@@ -87,6 +88,18 @@
     updateControl();
   });
 
-  if (!userPaused) play();
+  if (!userPaused) {
+    const startPlayback = () => {
+      initialPlaybackReady = true;
+      play();
+    };
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(startPlayback, { timeout: 2000 });
+      } else {
+        window.setTimeout(startPlayback, 1200);
+      }
+    }));
+  }
   updateControl();
 })();
