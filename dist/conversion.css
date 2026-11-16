@@ -1,0 +1,97 @@
+/* Final presentation layer: shared controls and focused homepage improvements. */
+:root{--kaphi-gold:#dda967;--kaphi-dark:#261c16}
+html{scroll-padding-top:105px}
+.button{min-height:48px;font-weight:600;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+.button:hover{box-shadow:0 6px 18px #24180e1c;transform:translateY(-2px)}
+.button:disabled{cursor:wait;transform:none;opacity:.65}
+input,textarea,select{font-size:16px!important}
+.reference-header{background:#faf5ecef;box-shadow:0 3px 20px #261b1408}
+.kaphi-home .film-hero.hero{min-height:660px;height:calc(100svh - 150px);max-height:840px}
+.kaphi-home .film-hero .hero-copy{width:61%;max-width:860px;padding-top:clamp(64px,9vh,110px);padding-bottom:60px;overflow:visible}
+.kaphi-home .film-hero .hero-copy h1{font-size:clamp(60px,6.6vw,96px);line-height:1.02;letter-spacing:-.045em;margin-bottom:27px}
+.kaphi-home .film-hero .hero-copy>.eyebrow{color:#e3c3a0;letter-spacing:1.8px;font-size:11px}
+.kaphi-home .film-hero .lead{max-width:440px;font-size:17px;line-height:1.75;color:#f1e6d7}
+.kaphi-home .hero-copy .actions{gap:22px;margin:30px 0 20px}
+.kaphi-home .hero-copy .button{background:var(--kaphi-gold);color:#271b12;border-color:var(--kaphi-gold);padding:17px 26px}
+.kaphi-home .hero-copy .button:hover{background:#f1c58c}
+.kaphi-home .hero-reassurance{font-size:12px;color:#d9c7ae;letter-spacing:.2px}
+.kaphi-home .hero-origin{display:none}
+.kaphi-service-strip{display:flex;justify-content:space-between;gap:20px;padding:22px 6%;background:#eae1d3;border-bottom:1px solid #d8cdbb;color:#574536;font-size:12px;letter-spacing:.35px}
+.kaphi-service-strip span::before{content:'\2726';color:#9b622e;margin-right:12px}
+.space-finder{padding-top:85px;padding-bottom:85px;background:#faf6ee}
+.space-heading{display:flex;justify-content:space-between;align-items:end;gap:48px;margin-bottom:36px}
+.space-heading h2{font-size:clamp(36px,4.1vw,58px)}
+.space-heading>p{max-width:375px;line-height:1.8;font-size:15px}
+.space-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.space-card{display:flex;flex-direction:column;align-items:start;padding:30px;min-height:320px;border:1px solid #dfd3c0;border-radius:5px;background:#f1e8da;transition:transform .25s,box-shadow .25s,border-color .25s}
+.space-card:nth-child(2){background:#e9e9de}
+.space-card:nth-child(3){background:#ede2d7}
+.space-card:hover{transform:translateY(-5px);box-shadow:0 16px 30px #3a2a1610;border-color:#ae875e}
+.space-index{font-size:10px;letter-spacing:1.6px;color:#715941;font-weight:600}
+.space-card h3{font-size:30px;line-height:1.1;margin:27px 0 17px;letter-spacing:-.5px}
+.space-card>p{font-size:14px;line-height:1.8;margin-bottom:28px}
+.space-cta{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;margin-top:auto;padding-top:18px;border-top:1px solid #bba98f80;font-size:12px;font-weight:600}
+.space-cta>span{font-size:22px}
+.kaphi-home .story{border-top:1px solid #ded2c1;padding-block:72px}
+.kaphi-home .video-gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
+.kaphi-home .video-showcase-card,.kaphi-home .video-showcase-card:nth-child(2),.kaphi-home .video-showcase-card:nth-child(3){grid-column:auto;width:100%;max-width:none;margin:0;justify-self:stretch}
+.kaphi-home .video-showcase-frame{border-radius:6px;overflow:hidden}
+.kaphi-home .video-showcase-frame video{aspect-ratio:16/9;width:100%;max-width:none;height:auto;object-fit:contain;transform:none;filter:none;background:#19110c}
+.kaphi-home .machine-photo-rail{display:block;overflow-x:auto;overflow-y:hidden;scroll-behavior:auto;scroll-snap-type:none;mask-image:none;-webkit-mask-image:none}
+.kaphi-home .machine-photo-track,.kaphi-home .machine-photo-group{display:flex;width:max-content}
+.kaphi-home .machine-photo-group{gap:24px;padding-right:24px;flex:0 0 auto}
+.kaphi-home .machine-photo-card{flex:0 0 clamp(300px,36vw,480px);width:clamp(300px,36vw,480px);min-width:0;margin:0;border-radius:6px;transition:transform .25s}
+.kaphi-home .machine-photo-card:hover{transform:translateY(-4px)}
+.kaphi-home .machine-photo-card img{height:auto;aspect-ratio:1;object-fit:contain}
+.kaphi-home .contact-options{padding:30px 34px;background:#382c24}
+.kaphi-home .contact-options h3{font-size:30px}
+.kaphi-home .contact-options p{font-size:11px;line-height:1.7;margin-top:9px}
+.kaphi-home .contact-options .button{width:100%;margin:27px 0 15px;justify-content:center}
+.kaphi-home .contact-options .text-link{color:#fff8ed}
+.brochure-download-dialog{position:fixed;inset:0;margin:auto;width:min(560px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);overflow:auto;padding:42px;border:1px solid #e6ddcf;border-radius:4px;background:#f8f5ee;color:#34271e;box-shadow:0 28px 100px #1e140d55}
+.brochure-download-dialog::backdrop{background:#211810b8;backdrop-filter:blur(5px)}
+.brochure-download-dialog h2{margin:0 35px 14px 0;font-size:clamp(34px,6vw,48px);line-height:1.05}
+.brochure-download-dialog p{color:#6d5d50;line-height:1.75}
+.brochure-download-dialog .eyebrow{margin-bottom:12px;color:#8c4f2d;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+.brochure-download-dialog .close{position:absolute;top:14px;right:14px;display:grid;width:36px;height:36px;place-items:center;border:1px solid #d6cbbb;border-radius:50%;background:#fbf8f1;color:#4b3829;font-size:24px;line-height:1}
+.brochure-download-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:22px}
+.brochure-download-fields label{display:block;color:#403329;font-size:12px;font-weight:600}
+.brochure-download-fields label span{float:right;color:#927e68;font-size:9px;font-weight:400;text-transform:uppercase;letter-spacing:.5px}
+.brochure-download-fields input{display:block;width:100%;height:42px;margin-top:6px;padding:8px 10px;border:1px solid #d8cdbd;border-radius:2px;background:#fffdf9;color:#34271e;font-size:14px}
+.brochure-download-fields input:focus-visible{outline:2px solid #9a6438;outline-offset:2px}
+.brochure-download-dialog .brochure-download-notice{margin:18px 0 0;padding:12px;border-left:3px solid #b87942;background:#f0e8dc;font-size:12px}
+.brochure-download-dialog form>.button{width:100%;margin-top:20px;justify-content:center}
+.brochure-download-dialog #brochure-download-success{margin-top:22px}
+.brochure-download-dialog #brochure-download-success p{margin-bottom:12px}
+@media(max-width:480px){.brochure-download-dialog{padding:34px 22px 24px}.brochure-download-fields{grid-template-columns:1fr;gap:12px}}
+.mobile-convert{display:none}
+@media(min-width:761px){.kaphi-home .film-hero:after{background:linear-gradient(90deg,#261b14 0%,#261b14f2 34%,#261b1490 64%,#261b1420 100%),linear-gradient(0deg,#261b14b8,transparent 35%)}}
+@media(max-width:1000px) and (min-width:761px){.kaphi-home .film-hero .hero-copy{width:70%}.space-card{padding:22px}.space-card h3{font-size:27px}.kaphi-service-strip{font-size:11px}}
+@media(max-width:760px){
+ .kaphi-home .film-hero.hero{display:flex;flex-direction:column;min-height:0;height:auto;max-height:none}
+ .kaphi-home .film-hero .hero-copy{position:relative;order:0;width:100%;padding:48px 6% 30px;max-width:none}
+ .kaphi-home .film-hero .hero-copy h1{font-size:clamp(48px,11vw,70px);line-height:1.04;max-width:100%}
+ .kaphi-home .film-hero .hero-copy>.eyebrow{font-size:9px;letter-spacing:1.2px;margin-bottom:22px}
+ .kaphi-home .film-hero .lead{font-size:15px;max-width:100%}
+ .kaphi-home .film-hero .hero-film{position:relative;order:1;inset:auto;width:100%;height:240px;opacity:1}
+ .kaphi-home .film-hero:after{display:none}
+ .kaphi-home .hero-copy .actions{gap:15px;align-items:start;flex-direction:column;margin:25px 0 18px}
+ .kaphi-service-strip{flex-wrap:wrap;gap:10px;padding:20px 6%;font-size:11px}
+ .kaphi-service-strip span{flex:1 1 240px}
+ .space-heading{display:block;margin-bottom:27px}.space-heading>p{margin-top:22px}
+ .space-grid{grid-template-columns:1fr;gap:15px}.space-card{min-height:0;padding:26px}
+ .space-card h3{font-size:32px;margin-top:20px}.space-card>p{margin-bottom:20px}
+ .kaphi-home .video-gallery{gap:32px}
+ .kaphi-home .machine-photo-card{flex-basis:82vw;width:82vw}
+ .kaphi-home .machine-photo-card img{max-height:350px}
+ .kaphi-home .story{padding-block:55px}
+ .kaphi-home{padding-bottom:72px}
+ .kaphi-home .floating-whatsapp{bottom:87px;width:48px;height:48px;right:18px}
+ .mobile-convert{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;background:#faf5ef;border-top:1px solid #d6c4ad;padding:10px 16px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -5px 20px #261b1410}
+ .mobile-convert a{display:flex;align-items:center;justify-content:center;gap:20px;flex:1;min-height:46px;font-size:12px;font-weight:600;border:1px solid #d6c4ad;border-radius:4px}
+ .mobile-convert a:last-child{background:#352418;color:#fff4e4;border-color:#352418}
+ .kaphi-home .contact-options{padding:27px 22px}
+}
+@media(prefers-reduced-motion:no-preference){body.scroll-effects-ready [data-scroll-reveal]:not(.customer-review-card){transform:translate3d(0,14px,0);transition-duration:.4s;transition-delay:calc(var(--scroll-reveal-order,0)*45ms)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.kaphi-home .machine-photo-group[aria-hidden="true"]{display:none}}

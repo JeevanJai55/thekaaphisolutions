@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 Thumbs.db
+/kaphi-website-update.zip
+/update-package/
+/api/

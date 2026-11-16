@@ -44,11 +44,13 @@ Object.entries(packetImages).forEach(([id, [source, alt, width, height]]) => {
   image.alt = alt;
 });
 const collectionImages = document.querySelectorAll('.catalogue-hero figure img');
-if (collectionImages.length >= 2) {
+if (collectionImages.length >= 3) {
   collectionImages[0].src = 'assets/beans-cutout.webp';
   collectionImages[0].alt = 'The Kaphi Roasted Coffee Beans package';
-  collectionImages[1].src = 'assets/cardamom-cutout.webp';
-  collectionImages[1].alt = 'The Kaphi Cardamom Tea package';
+  collectionImages[1].src = 'assets/filter-cutout.webp';
+  collectionImages[1].alt = 'The Kaphi Filter Coffee package';
+  collectionImages[2].src = 'assets/tea-cutout.webp';
+  collectionImages[2].alt = 'The Kaphi Premium Tea package';
 }
 document.querySelectorAll('[data-catalogue-image]').forEach(button => button.addEventListener('click', () => {
   document.querySelector('#catalogue-image-title').textContent = button.dataset.imageTitle;

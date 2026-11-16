@@ -1015,8 +1015,23 @@ footer.site-footer {
 }
 
 .machine-photo-rail {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 2px 0 16px;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+}
+
+.machine-photo-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.machine-photo-rail:focus-visible {
+  outline: 2px solid #8c4f2d;
+  outline-offset: 4px;
 }
 
 .machine-photo-track,
@@ -1025,20 +1040,10 @@ footer.site-footer {
   width: max-content;
 }
 
-.machine-photo-track {
-  animation: machine-photo-loop 32s linear infinite;
-}
-
 .machine-photo-group {
   flex: 0 0 auto;
   gap: 20px;
   padding-right: 20px;
-}
-
-@keyframes machine-photo-loop {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .machine-photo-card {
@@ -1116,21 +1121,6 @@ footer.site-footer {
 
 .machine-photo-card-copy > span:last-child {
   font-size: 20px;
-}
-
-.machine-rail-hint {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 10px 0 0;
-  color: #6d5d50;
-  font: 10px/1.5 Arial, sans-serif;
-  letter-spacing: .06em;
-}
-
-.machine-rail-hint span {
-  color: #8c4f2d;
-  font-size: 16px;
 }
 
 .video-showcase-inner {
@@ -1709,16 +1699,29 @@ footer.site-footer {
 }
 
 .catalogue-page .catalogue-hero figure img:first-of-type {
-  top: 4%;
-  left: 2%;
-  transform: rotate(-8deg);
+  top: 7%;
+  left: 0;
+  width: 49%;
+  height: 82%;
+  transform: rotate(-9deg);
 }
 
 .catalogue-page .catalogue-hero figure img:nth-of-type(2) {
-  top: 12%;
+  top: 15%;
+  left: 26%;
+  z-index: 3;
+  width: 49%;
+  height: 82%;
+  transform: rotate(-1deg);
+}
+
+.catalogue-page .catalogue-hero figure img:nth-of-type(3) {
+  top: 5%;
   right: 0;
   z-index: 2;
-  transform: rotate(7deg);
+  width: 49%;
+  height: 82%;
+  transform: rotate(8deg);
 }
 
 .catalogue-page .catalogue-hero figure figcaption {
@@ -1806,7 +1809,6 @@ footer.site-footer {
   }
 
   .catalogue-page .catalogue-hero figure img {
-    width: 58%;
     height: 83%;
   }
 

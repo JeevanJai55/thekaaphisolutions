@@ -1,98 +1,83 @@
 'use strict';
 (() => {
   const hero = document.querySelector('.film-hero');
-  if (!hero) return;
-
   const video = document.querySelector('#hero-video');
-  const toggle = document.querySelector('#hero-play');
   const status = document.querySelector('#hero-video-status');
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const saveData = navigator.connection?.saveData;
+  if (!hero || !video || !status) return;
 
-  let userPaused = reduced.matches || Boolean(saveData);
-  let userRequestedPlayback = false;
-  let initialPlaybackReady = false;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const saveData = Boolean(navigator.connection?.saveData);
   let visible = !('IntersectionObserver' in window);
-
-  function updateControl() {
-    const playing = !video.paused && !video.ended;
-    toggle.setAttribute('aria-label', playing ? 'Pause hero video' : 'Play hero video');
-    toggle.querySelector('[aria-hidden]').textContent = playing ? 'Ⅱ' : '▷';
-    toggle.querySelector('.film-play-label').textContent = playing ? 'Pause' : 'Play';
-    hero.classList.toggle('film-playing', playing);
-  }
-
-  async function play(manual = false) {
-    if (userPaused || !visible || document.hidden || (!manual && !initialPlaybackReady)) return;
-    if (!video.src) {
-      video.src = video.dataset.src;
-      video.load();
-    }
-    try { await video.play(); } catch { /* Playback stays under the visitor's control. */ }
-    updateControl();
-  }
-
-  video.muted = true;
-  video.addEventListener('canplay', () => play(userRequestedPlayback));
-  video.addEventListener('play', updateControl);
-  video.addEventListener('pause', updateControl);
-  video.addEventListener('error', () => {
-    userPaused = true;
-    updateControl();
-    status.textContent = 'The video could not load. Please try again later.';
+  let autoPlaybackReady = false;
+  let userPaused = reducedMotion.matches || saveData;
+  let startPromise;
+  const motionButton = document.querySelector('.hero-motion');
+  motionButton?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    motionButton.setAttribute('aria-pressed', String(userPaused));
+    motionButton.setAttribute('aria-label', userPaused ? 'Play background video' : 'Pause background video');
+    motionButton.textContent = userPaused ? 'Play film \u25b6' : 'Pause film \u275a\u275a';
+    if (userPaused) video.pause();
+    else playVideo();
   });
 
-  toggle.addEventListener('click', () => {
-    if (!video.paused) {
-      userPaused = true;
-      userRequestedPlayback = false;
-      video.pause();
-    } else {
-      userPaused = false;
-      userRequestedPlayback = true;
-      play(true);
+  async function playVideo() {
+    if (video.paused && !userPaused && visible && !document.hidden &&
+        autoPlaybackReady && !reducedMotion.matches && !saveData) {
+      if (!video.src) {
+        video.src = video.dataset.src;
+        video.load();
+      }
+      if (!startPromise) {
+        startPromise = video.play()
+          .then(() => { status.textContent = ''; })
+          .catch(() => {
+            status.textContent = 'The video could not start automatically.';
+          })
+          .finally(() => { startPromise = undefined; });
+      }
+      await startPromise;
     }
-    updateControl();
+  }
+
+  video.addEventListener('error', () => {
+    status.textContent = 'The video could not load. Please try again later.';
   });
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) video.pause();
-    else play(userRequestedPlayback);
+    else playVideo();
   });
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      visible = entries[0].isIntersecting;
-      if (visible && !userPaused) play(userRequestedPlayback);
-      else if (!visible) video.pause();
-    }, { threshold: .15 });
-    observer.observe(hero);
-  }
-
-  reduced.addEventListener('change', event => {
+  reducedMotion.addEventListener('change', event => {
     if (event.matches) {
       userPaused = true;
       video.pause();
-      updateControl();
     } else {
       userPaused = false;
-      userRequestedPlayback = false;
-      play(false);
+      playVideo();
     }
   });
 
-  if (!userPaused) {
-    const startPlayback = () => {
-      initialPlaybackReady = true;
-      play();
-    };
-    window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(startPlayback, { timeout: 2000 });
-      } else {
-        window.setTimeout(startPlayback, 1200);
-      }
-    }));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) playVideo();
+      else video.pause();
+    }, { threshold: 0.1 });
+    observer.observe(hero);
   }
-  updateControl();
+
+  if (!userPaused) {
+    const enableAutoPlayback = () => {
+      autoPlaybackReady = true;
+      playVideo();
+    };
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(enableAutoPlayback, { timeout: 2000 });
+    } else {
+      window.setTimeout(enableAutoPlayback, 1200);
+    }
+  }
+
 })();
