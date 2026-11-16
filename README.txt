@@ -10,6 +10,7 @@ The deployable website is in the dist folder. The root vercel.json points Vercel
 Deployment notes:
 - Deploy the repository root to Vercel; its root vercel.json sets dist as the output directory and adds production hardening headers and CDN-friendly cache settings. Push this configuration and redeploy after importing the repository.
 - The dist folder includes the static website and custom 404 page.
+- Homepage videos are served from this repository's Git LFS media endpoint because Vercel deploys Git LFS pointer files instead of the video bytes. Update those media URLs if the repository or asset location changes.
 - The local preview server also applies security headers and sensible cache lifetimes for HTML versus immutable assets.
 - The brochure button opens a popup requesting name and email (phone and business are optional), then downloads the PDF. Email delivery is not configured yet; submitted details are not sent or stored. Contact actions open the phone dialer or WhatsApp.
 - If Google Sheets credentials were previously added to Vercel, remove GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_PRIVATE_KEY from Project Settings > Environment Variables, then redeploy. If the Google service account was created only for this site, remove its key or account in Google Cloud. Existing rows in any spreadsheet are not deleted by this code change.
