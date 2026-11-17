@@ -85,7 +85,7 @@ input,textarea,select{font-size:16px!important}
  .kaphi-home .machine-photo-card{flex-basis:82vw;width:82vw}
  .kaphi-home .machine-photo-card img{max-height:350px}
  .kaphi-home .story{padding-block:55px}
- .kaphi-home{padding-bottom:72px}
+ .kaphi-home .site-footer{padding-bottom:92px}
  .kaphi-home .floating-whatsapp{bottom:87px;width:48px;height:48px;right:18px}
  .mobile-convert{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;background:#faf5ef;border-top:1px solid #d6c4ad;padding:10px 16px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -5px 20px #261b1410}
  .mobile-convert a{display:flex;align-items:center;justify-content:center;gap:20px;flex:1;min-height:46px;font-size:12px;font-weight:600;border:1px solid #d6c4ad;border-radius:4px}
