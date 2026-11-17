@@ -20,6 +20,7 @@ const assert = require('node:assert/strict');
  const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
  assert.ok(home.includes('Better coffee.'));
  assert.equal((home.match(/class="space-card"/g) || []).length, 3);
+ assert.equal((home.match(/class="home-product-arrow" aria-hidden="true">&rarr;<\/span>/g) || []).length, 3);
  assert.ok(home.includes('<script src="machine-rail.js"'));
  assert.ok(home.includes('assets/kaphi-equipment-brochure.pdf'));
  assert.ok(home.includes('<script src="brochure-popup.js?v=3" defer></script>'));
