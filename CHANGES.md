@@ -20,7 +20,8 @@ Open http://127.0.0.1:4387/. If the port is in use, choose another with `--port=
 - Three large, full-width homepage videos, stacked vertically in their original widescreen proportions.
 - Continuous horizontal equipment carousel, including while hovering. Keyboard focus, touch interaction and reduced-motion preferences are respected.
 - Shorter reveal animations and a background-video pause button.
-- Brochure details form downloads the PDF; email delivery is pending configuration, and visitor details are not sent or stored yet.
+- Brochure links on the home and machines pages open a details popup and provide the PDF download; email delivery is not configured, and visitor details are not sent or stored.
+- Restored the contact enquiry form. It prepares a message in WhatsApp for the visitor to review and send; the website does not store the submitted details.
 - Existing product pages, supplied media and contact details retained; Google Sheets lead storage removed.
 
 ## Apply the update archive
@@ -29,7 +30,7 @@ The older `kaphi-website-update.zip` archive does not include these latest chang
 
 ## Lead collection
 
-The website no longer sends lead details to Google Sheets. The brochure form validates visitor details and downloads the brochure, but does not yet send or store those details. Contact links open the phone dialer or WhatsApp.
+The website does not send lead details to Google Sheets. The brochure form validates visitor details and provides the download without sending or storing those details. The contact form opens a prefilled WhatsApp message; the visitor reviews it and chooses whether to send.
 
 ## Validation and limits
 
