@@ -64,7 +64,6 @@ input,textarea,select{font-size:16px!important}
 .brochure-download-dialog #brochure-download-success{margin-top:22px}
 .brochure-download-dialog #brochure-download-success p{margin-bottom:12px}
 @media(max-width:480px){.brochure-download-dialog{padding:34px 22px 24px}.brochure-download-fields{grid-template-columns:1fr;gap:12px}}
-.mobile-convert{display:none}
 @media(min-width:761px){.kaphi-home .film-hero:after{background:linear-gradient(90deg,#261b14 0%,#261b14f2 34%,#261b1490 64%,#261b1420 100%),linear-gradient(0deg,#261b14b8,transparent 35%)}}
 @media(max-width:1000px) and (min-width:761px){.kaphi-home .film-hero .hero-copy{width:70%}.space-card{padding:22px}.space-card h3{font-size:27px}.kaphi-service-strip{font-size:11px}}
 @media(max-width:760px){
@@ -85,11 +84,6 @@ input,textarea,select{font-size:16px!important}
  .kaphi-home .machine-photo-card{flex-basis:82vw;width:82vw}
  .kaphi-home .machine-photo-card img{max-height:350px}
  .kaphi-home .story{padding-block:55px}
- .kaphi-home .site-footer{padding-bottom:92px}
- .kaphi-home .floating-whatsapp{bottom:87px;width:48px;height:48px;right:18px}
- .mobile-convert{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;background:#faf5ef;border-top:1px solid #d6c4ad;padding:10px 16px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -5px 20px #261b1410}
- .mobile-convert a{display:flex;align-items:center;justify-content:center;gap:20px;flex:1;min-height:46px;font-size:12px;font-weight:600;border:1px solid #d6c4ad;border-radius:4px}
- .mobile-convert a:last-child{background:#352418;color:#fff4e4;border-color:#352418}
  .kaphi-home .contact-options{padding:27px 22px}
 }
 @media(prefers-reduced-motion:no-preference){body.scroll-effects-ready [data-scroll-reveal]:not(.customer-review-card){transform:translate3d(0,14px,0);transition-duration:.4s;transition-delay:calc(var(--scroll-reveal-order,0)*45ms)}}

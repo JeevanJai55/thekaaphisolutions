@@ -7,6 +7,7 @@ const assert = require('node:assert/strict');
  let checked = 0;
  for (const file of fs.readdirSync(root).filter(f => f.endsWith('.html'))) {
   const html = fs.readFileSync(path.join(root, file), 'utf8');
+  assert.doesNotMatch(html, /[\u2197\u2192]/, `${file}: use the shared right-arrow entity`);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
   assert.equal(new Set(ids).size, ids.length, `${file}: duplicate IDs`);
   for (const [, ref] of html.matchAll(/(?:src|href|poster|data-src)="([^"]+)"/g)) {
