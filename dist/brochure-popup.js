@@ -3,6 +3,7 @@
 const triggers = document.querySelectorAll('.brochure-trigger');
 const dialog = document.querySelector('#brochure-download-dialog');
 const form = document.querySelector('#brochure-download-form');
+const downloadPreferenceKey = 'kaphi-brochure-download-completed';
 
 if (triggers.length && dialog && form) {
   const success = dialog.querySelector('#brochure-download-success');
@@ -10,7 +11,24 @@ if (triggers.length && dialog && form) {
   const download = success?.querySelector('a');
   if (!success || !close || !download) throw new Error('Brochure download dialog is incomplete.');
 
+  const hasCompletedDownload = () => {
+    try {
+      return window.localStorage.getItem(downloadPreferenceKey) === 'true';
+    } catch (error) {
+      console.error('Unable to read brochure download preference.', error);
+      return false;
+    }
+  };
+  const rememberCompletedDownload = () => {
+    try {
+      window.localStorage.setItem(downloadPreferenceKey, 'true');
+    } catch (error) {
+      console.error('Unable to save brochure download preference.', error);
+    }
+  };
+
   let activeTrigger;
+  if (!hasCompletedDownload()) dialog.showModal();
   triggers.forEach(trigger => trigger.addEventListener('click', event => {
     event.preventDefault();
     activeTrigger = trigger;
@@ -28,5 +46,6 @@ if (triggers.length && dialog && form) {
     form.hidden = true;
     success.hidden = false;
     download.click();
+    rememberCompletedDownload();
   });
 }
