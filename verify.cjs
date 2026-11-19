@@ -38,7 +38,7 @@ const assert = require('node:assert/strict');
  const { buildWhatsAppUrl } = await import('./dist/whatsapp-enquiry.mjs');
  const enquiryUrl = new URL(buildWhatsAppUrl({ interest: 'Coffee & tea', name: '  Asha  ', company: 'Kaphi', message: 'Please share details.' }));
  assert.equal(enquiryUrl.hostname, 'wa.me');
- assert.equal(enquiryUrl.pathname, '/919880491458');
+ assert.equal(enquiryUrl.pathname, '/918050719520');
  assert.ok(decodeURIComponent(enquiryUrl.searchParams.get('text')).includes('Name: Asha'));
  assert.ok(decodeURIComponent(enquiryUrl.searchParams.get('text')).includes('Message:\nPlease share details.'));
  assert.ok(!fs.existsSync(path.join(__dirname, 'api', 'brochure-leads.mjs')));

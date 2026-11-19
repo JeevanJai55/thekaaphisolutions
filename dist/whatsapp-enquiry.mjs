@@ -1,4 +1,4 @@
-const recipient = '919880491458';
+const recipient = '918050719520';
 const limits = Object.freeze({ name: 100, company: 120, city: 100, phone: 40, message: 1500 });
 
 function cleanText(value, maximum = 140) {
