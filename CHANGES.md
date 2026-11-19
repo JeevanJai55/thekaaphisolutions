@@ -16,7 +16,7 @@ Open http://127.0.0.1:4387/. If the port is in use, choose another with `--port=
 
 - Stronger homepage headline and visitor-focused copy.
 - Office, cafe and shared-space paths to the contact section.
-- A brochure download popup that requires name and email, with phone and business optional, plus a mobile call/contact bar.
+- A brochure download popup that requires name, email, and phone, with business optional, plus a mobile call/contact bar.
 - Three large, full-width homepage videos, stacked vertically in their original widescreen proportions.
 - Continuous horizontal equipment carousel, including while hovering. Keyboard focus, touch interaction and reduced-motion preferences are respected.
 - Shorter reveal animations and a background-video pause button.

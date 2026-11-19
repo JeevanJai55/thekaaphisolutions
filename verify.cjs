@@ -29,6 +29,7 @@ const assert = require('node:assert/strict');
  assert.ok(home.includes('<form id="enquiry">'));
  assert.ok(home.includes('id="whatsapp-link"'));
  assert.ok(home.includes('<form id="brochure-download-form">'));
+ assert.ok(home.includes('id="brochure-download-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" required'));
  assert.ok(home.includes('name="name"'));
  assert.ok(home.includes('name="email"'));
  const machines = fs.readFileSync(path.join(root, 'machines.html'), 'utf8');
